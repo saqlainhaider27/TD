@@ -1,6 +1,11 @@
 using UnityEngine;
 
 public abstract class Attacker : MonoBehaviour, IAgent, IAttackable {
+    public Vector2 TargetPostition {
+        get;
+        set;
+    }
+
     public void Attack(IAttackable attackable, int damage) {
         throw new System.NotImplementedException();
     }
