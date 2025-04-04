@@ -7,9 +7,9 @@ public class Miner : Defender {
     private Point _targetPoint;
 
     private void Start() {
+        SetStats();
         // Miner is spawned
         // Check which mine is not occupied
-        MoveSpeed = DefenderSO.Speed;
         foreach (Point point in MinerSpawner.Instance.MinePointList) {
             if (point.Occupied == false) {
                 // Set the spawn location

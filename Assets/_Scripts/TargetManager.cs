@@ -8,7 +8,7 @@ public class TargetManager : Singleton<TargetManager> {
     public void AddTarget(IAttackable attackable) {
         attackables.Add(attackable);
     }
-    public void RemoveTargets(IAttackable attackable) {
+    public void RemoveTarget(IAttackable attackable) {
         attackables.Remove(attackable);
     }
 }

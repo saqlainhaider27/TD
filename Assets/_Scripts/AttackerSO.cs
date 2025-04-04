@@ -13,4 +13,9 @@ public class AttackerSO : ScriptableObject {
         get;
         private set;
     } = 10;
+    [field: SerializeField]
+    public float StoppingDistance {
+        get;
+        private set;
+    } = 1f;
 }

@@ -16,4 +16,9 @@ public class DefenderSO : ScriptableObject {
         get;
         private set;
     } = 0;
+    [field: SerializeField]
+    public float StoppingDistance {
+        get;
+        private set;
+    } = 1f;
 }

@@ -2,8 +2,11 @@ using System;
 using UnityEngine;
 
 public abstract class GameCharacterBase : MonoBehaviour, IAgent, IAttackable {
-    public float Health {
+    public bool IsDead {
         get; private set;
+    } = false;
+    public float Health {
+        get; protected set;
     }
     public float MoveSpeed {
         get; protected set;
@@ -13,14 +16,12 @@ public abstract class GameCharacterBase : MonoBehaviour, IAgent, IAttackable {
         set;
     }
     public float StopThreshold {
-        get => _stopThreshold;
-        protected set => _stopThreshold = value;
+        get;
+        protected set;
     }
     public Vector2 Position {
         get; set;
     }
-
-    private float _stopThreshold = 0.1f;
     private float _currentVelocity;
     public void MoveTo(Vector2 position) {
         TargetPostition = position;
@@ -56,6 +57,9 @@ public abstract class GameCharacterBase : MonoBehaviour, IAgent, IAttackable {
         return false;
     }
     public void TakeDamage(int damage) {
+        if (IsDead) {
+            return;
+        }
         if (Health <= 0) {
             Die();
             return;
@@ -69,6 +73,9 @@ public abstract class GameCharacterBase : MonoBehaviour, IAgent, IAttackable {
 
     private void Die() {
         Health = 0;
+        IsDead = true;
+        TargetManager.Instance.RemoveTarget(this);
+        Destroy(gameObject);
     }
     public abstract void Attack(IAttackable attackable, int damage);
 }

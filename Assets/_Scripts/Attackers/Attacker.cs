@@ -10,4 +10,9 @@ public abstract class Attacker : GameCharacterBase{
     public void FollowAttackTarget() {
         MoveTo(_target.Position);
     }
+    public void SetStats() {
+        Health = AttackerSO.Health;
+        MoveSpeed = AttackerSO.Speed;
+        StopThreshold = AttackerSO.StoppingDistance;
+    }
 }
