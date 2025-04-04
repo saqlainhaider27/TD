@@ -6,6 +6,13 @@ public abstract class Building : MonoBehaviour, IAttackable {
     public int Health {
         get; set;
     } = 100;
+    public Vector2 Position {
+        get;
+        set;
+    }
+    private void Start() {
+        Position = transform.position;
+    }
     public void TakeDamage(int damage) {
         if (Health <= 0) {
             Die();

@@ -2,7 +2,6 @@ using System;
 using UnityEngine;
 
 public class Miner : Defender {
-    [SerializeField] private int damage;
     [SerializeField] private float mineCooldown = 2.0f;
     private float lastMineTime;
     private Point _targetPoint;
@@ -10,6 +9,7 @@ public class Miner : Defender {
     private void Start() {
         // Miner is spawned
         // Check which mine is not occupied
+        MoveSpeed = DefenderSO.Speed;
         foreach (Point point in MinerSpawner.Instance.MinePointList) {
             if (point.Occupied == false) {
                 // Set the spawn location
@@ -23,6 +23,7 @@ public class Miner : Defender {
     }
 
     private void Update() {
+        Position = transform.position;
         if (IsStopped()) {
             // Start Mining
             Mine();
@@ -36,15 +37,11 @@ public class Miner : Defender {
     private void Mine() {
         if (Time.time >= lastMineTime + mineCooldown) {
             lastMineTime = Time.time;
-            Attack(_targetPoint.Building, damage);
+            Attack(_targetPoint.Building, DefenderSO.Damage);
         }
     }
 
     public override void Attack(IAttackable attackable, int damage) {
         attackable.TakeDamage(damage);
-    }
-
-    public override void TakeDamage(int damage) {
-
     }
 }

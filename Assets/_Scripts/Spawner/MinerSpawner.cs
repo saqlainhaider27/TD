@@ -37,19 +37,18 @@ public class MinerSpawner : AgentSpawner {
         _minerButton.onClick.AddListener(Spawn);
     }
     public override void Spawn() {
+        if (!HasEnoughMoney()) {
+            return;
+        }
         if (MinePointList.Count == 0) {
             Debug.LogError("No elements in list");
             return;
         }
         if (_totalOccupied >= MinePointList.Count) {
-            // Can't spawn so return
             return;
         }
-        // TODO:
-        // Check the current cost of the miner with the money player has
-        // Spawn only if player has more money or equal money to the cost
-        // Spawns the prefab
         SpawnAt(_spawnPrefab, _spawnLocation);
+        DecrementCost();
         _totalOccupied++;
     }
 }

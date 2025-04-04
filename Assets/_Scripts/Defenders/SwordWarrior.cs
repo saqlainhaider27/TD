@@ -17,7 +17,4 @@ public class SwordWarrior : Defender {
     public override void Attack(IAttackable attackable, int damage) {
         attackable.TakeDamage(damage);
     }
-    public override void TakeDamage(int damage) {
-
-    }
 }

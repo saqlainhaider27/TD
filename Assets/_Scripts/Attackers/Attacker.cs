@@ -1,28 +1,13 @@
 using UnityEngine;
 
-public abstract class Attacker : MonoBehaviour, IAgent, IAttackable {
-    public Vector2 TargetPostition {
-        get;
-        set;
-    }
+public abstract class Attacker : GameCharacterBase{
+    protected IAttackable _target;
 
-    public void Attack(IAttackable attackable, int damage) {
-        throw new System.NotImplementedException();
+    [field: SerializeField]
+    public AttackerSO AttackerSO {
+        get; private set;
     }
-
-    public bool IsStopped() {
-        throw new System.NotImplementedException();
-    }
-
-    public void MoveTo(Vector2 position) {
-        
-    }
-
-    public void RotateTo(Vector2 position) {
-        throw new System.NotImplementedException();
-    }
-
-    public void TakeDamage(int damage) {
-        
+    public void FollowAttackTarget() {
+        MoveTo(_target.Position);
     }
 }

@@ -7,6 +7,7 @@ public class MoneyTextUI : MonoBehaviour {
         textMesh = GetComponent<TextMeshProUGUI>();
     }
     private void Start() {
+        textMesh.text = GameEconomics.Instance.Money.ToString();
         GameEconomics.Instance.OnMoneyChanged += GameEconomics_OnMoneyChanged;
     }
 
