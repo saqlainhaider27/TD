@@ -40,9 +40,7 @@ public class MinerSpawner : DefenderFactory {
     }
 
     public override IAgent Spawn() {
-        if (!HasEnoughMoney()) {
-            return null;
-        }
+
         if (MinePointList.Count == 0) {
             Debug.LogError("No elements in list");
             return null;
@@ -50,9 +48,12 @@ public class MinerSpawner : DefenderFactory {
         if (_totalOccupied >= MinePointList.Count) {
             return null;
         }
-        
-        DecrementCost();
         _totalOccupied++;
-        return SpawnAt(_spawnPrefab, _spawnLocation);
+        //if (!HasEnoughMoney()) {
+        //    return null;
+        //}
+        //DecrementCost();
+        //return SpawnAt(_spawnPrefab, _spawnLocation);
+        return base.Spawn();
     }
 }

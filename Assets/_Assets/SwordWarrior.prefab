@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 1393812237001249430}
   - component: {fileID: 3467099017967070879}
   m_Layer: 0
-  m_Name: Defender
+  m_Name: SwordWarrior
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -170,7 +170,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40897659af55d554c9e2c7ba8a536807, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <DefenderSO>k__BackingField: {fileID: 0}
+  <DefenderSO>k__BackingField: {fileID: 11400000, guid: 7694a2b89466d604fa0a7e973548d899, type: 2}
 --- !u!1 &4990592128344077216
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,18 +1,31 @@
 using UnityEngine;
 
 public class SwordWarrior : Defender {
-
+    private Point _targetPoint;
     private void Start() {
-        InputManager.Instance.OnClick += InputController_OnClick;
+        // Set the stats of the defender
+        SetStats();
+        foreach (Point point in ArmyUnit.Instance.Points) {
+            if (point.Occupied == false) {
+                // Set the spawn location
+                // Move the miner to the Mine
+                _targetPoint = point;
+                TargetPostition = _targetPoint.transform.position;
+                point.Occupied = true;
+                break;
+            }
+        }
+
     }
-    private void InputController_OnClick(object sender, System.EventArgs e) {
-        // Get the mouse position in 2D space
-        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        // Move the defender to the mouse position
-        TargetPostition = mousePosition;
-    }
+
     private void Update() {
-        MoveTo(TargetPostition);
+        //MoveTo(TargetPostition);
+        if (IsStopped()) {
+            // Wait or attack
+        }
+        else {
+            MoveTo(TargetPostition);
+        }
     }
     public override void Attack(IAttackable attackable, int damage) {
         attackable.TakeDamage(damage);
