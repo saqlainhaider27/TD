@@ -6,13 +6,25 @@ public class BruteAttacker : Attacker {
     private void Start() {
         SetStats();
         _nearestDistance = Vector2.Distance(transform.position, Castle.Instance.Position);
+        _attackCooldown = 0f;
     }
+
     private void Update() {
-        // TODO: The attacker does not take reference to the next target when it kills the current target
         Position = transform.position;
-        Debug.Log(_target);
+        _attackCooldown -= Time.deltaTime;
         if (IsStopped()) {
-            Attack(_target, AttackerSO.Damage);
+            if (_target != null) {
+                if (_attackCooldown <= 0f) {
+                    Attack(_target, AttackerSO.Damage);
+                    _attackCooldown = AttackerSO.AttackSpeed;
+                }
+                if (_target.IsDead) {
+                    _target = GetNearestTarget();
+                }
+            }
+            else {
+                _target = GetNearestTarget();
+            }
         }
         else {
             _target = GetNearestTarget();
@@ -21,10 +33,9 @@ public class BruteAttacker : Attacker {
             FollowAttackTarget();
         }
     }
-
     private IAttackable GetNearestTarget() {
         IAttackable target = Castle.Instance;
-        foreach (IAttackable attackable in TargetManager.Instance.attackables) {
+        foreach (IAttackable attackable in AgentManager.Instance.agents) {
             float distanceToTarget = Vector2.Distance(Position, attackable.Position);
             if (distanceToTarget < _nearestDistance) {
                 _nearestDistance = distanceToTarget;
@@ -34,8 +45,14 @@ public class BruteAttacker : Attacker {
         return target;
     }
 
+    private float _attackCooldown;
+
+
+
     public override void Attack(IAttackable attackable, int damage) {
-        // TODO: Add and attack delay to the BruteAttacker
+        if (attackable == null) {
+            return;
+        }
         attackable.TakeDamage(damage);
     }
 }

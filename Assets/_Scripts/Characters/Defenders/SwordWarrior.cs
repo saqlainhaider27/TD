@@ -3,7 +3,7 @@ using UnityEngine;
 public class SwordWarrior : Defender {
 
     private void Start() {
-        InputController.Instance.OnClick += InputController_OnClick;
+        InputManager.Instance.OnClick += InputController_OnClick;
     }
     private void InputController_OnClick(object sender, System.EventArgs e) {
         // Get the mouse position in 2D space

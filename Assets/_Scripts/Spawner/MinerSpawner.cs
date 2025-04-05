@@ -2,9 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MinerSpawner : AgentSpawner {
-
-    [SerializeField] private Button _minerButton;
+public class MinerSpawner : DefenderFactory {
     public List<Point> MinePointList {
         get;
         private set;
@@ -34,21 +32,27 @@ public class MinerSpawner : AgentSpawner {
                 MinePointList.Add(point);
             }
         }
-        _minerButton.onClick.AddListener(Spawn);
+        UIManager.Instance.OnMinerButtonPressed += UIManager_OnMinerButtonPressed;
     }
-    public override void Spawn() {
+
+    private void UIManager_OnMinerButtonPressed() {
+        Spawn();
+    }
+
+    public override IAgent Spawn() {
         if (!HasEnoughMoney()) {
-            return;
+            return null;
         }
         if (MinePointList.Count == 0) {
             Debug.LogError("No elements in list");
-            return;
+            return null;
         }
         if (_totalOccupied >= MinePointList.Count) {
-            return;
+            return null;
         }
-        SpawnAt(_spawnPrefab, _spawnLocation);
+        
         DecrementCost();
         _totalOccupied++;
+        return SpawnAt(_spawnPrefab, _spawnLocation);
     }
 }

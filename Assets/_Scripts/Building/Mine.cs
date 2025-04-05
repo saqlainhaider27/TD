@@ -13,6 +13,6 @@ public class Mine : Building {
     }
 
     private void Mine_OnDamageTaken(object sender, System.EventArgs e) {
-        GameEconomics.Instance.AddMoney(10);
+        GameEconomicsManager.Instance.AddMoney(10);
     }
 }

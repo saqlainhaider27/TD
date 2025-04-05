@@ -10,6 +10,11 @@ public abstract class Building : MonoBehaviour, IAttackable {
         get;
         set;
     }
+    public bool IsDead {
+        get;
+        set;
+    }
+
     private void Start() {
         Position = transform.position;
     }
@@ -28,5 +33,6 @@ public abstract class Building : MonoBehaviour, IAttackable {
 
     private void Die() {
         Health = 0;
+        Destroy(gameObject);
     }
 }

@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class GameEconomics : Singleton<GameEconomics> {
+public class GameEconomicsManager : Singleton<GameEconomicsManager> {
     public event EventHandler<OnMoneyChangedEventArgs> OnMoneyChanged;
     public class OnMoneyChangedEventArgs : EventArgs {
         public int money;

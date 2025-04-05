@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class InputController : Singleton<InputController> {
+public class InputManager : Singleton<InputManager> {
     private InputSystem_Actions _inputActions;
     public event EventHandler OnClick;
     private void Awake() {

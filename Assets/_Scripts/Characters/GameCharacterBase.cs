@@ -3,7 +3,7 @@ using UnityEngine;
 
 public abstract class GameCharacterBase : MonoBehaviour, IAgent, IAttackable {
     public bool IsDead {
-        get; private set;
+        get; set;
     } = false;
     public float Health {
         get; protected set;
@@ -74,7 +74,7 @@ public abstract class GameCharacterBase : MonoBehaviour, IAgent, IAttackable {
     private void Die() {
         Health = 0;
         IsDead = true;
-        TargetManager.Instance.RemoveTarget(this);
+        AgentManager.Instance.RemoveTarget(this);
         Destroy(gameObject);
     }
     public abstract void Attack(IAttackable attackable, int damage);

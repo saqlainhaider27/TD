@@ -5,5 +5,10 @@ public interface IAttackable {
         get; 
         set; 
     }
+    public bool IsDead {
+        get;
+        set;
+    }
     void TakeDamage(int damage);
+
 }
