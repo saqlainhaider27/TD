@@ -1091,7 +1091,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spawnLocation: {fileID: 0}
-  _attackerSO: {fileID: 0}
+  _spawnableAttackers: []
 --- !u!1 &836671335
 GameObject:
   m_ObjectHideFlags: 0
