@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 854a36c46dde5964fb32bc8818b4db33, type: 3}
   m_Name: Brute
   m_EditorClassIdentifier: 
+  <SpawnPrefab>k__BackingField: {fileID: 2913605034560968122, guid: 8f6331470dbcabc429069305a6c23d36, type: 3}
   <Health>k__BackingField: 100
   <Speed>k__BackingField: 1
   <AttackSpeed>k__BackingField: 1
   <Damage>k__BackingField: 10
+  <StoppingDistance>k__BackingField: 1

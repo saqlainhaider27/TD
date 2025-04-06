@@ -311,6 +311,7 @@ GameObject:
   - component: {fileID: 356492797}
   - component: {fileID: 356492799}
   - component: {fileID: 356492800}
+  - component: {fileID: 356492801}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -359,6 +360,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _minerButton: {fileID: 1439372620}
   _swordWarriorButton: {fileID: 836671337}
+--- !u!114 &356492801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 356492796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41aa468b04f7d28439646f7a13708f6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &368230762
 GameObject:
   m_ObjectHideFlags: 0
@@ -1009,6 +1022,7 @@ GameObject:
   - component: {fileID: 707199952}
   - component: {fileID: 707199953}
   - component: {fileID: 707199954}
+  - component: {fileID: 707199955}
   m_Layer: 0
   m_Name: Spawner
   m_TagString: Untagged
@@ -1044,7 +1058,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6ddd261ee19b7f438f4ca5ec1056967, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spawnPrefab: {fileID: 6990795403873341230, guid: 674467364976f7847858372c66c1525c, type: 3}
   _spawnLocation: {fileID: 368230763}
   _defenderSO: {fileID: 11400000, guid: 37846cb158040fa49892e1a145303ae5, type: 2}
   <Mines>k__BackingField:
@@ -1062,10 +1075,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31439ea660193554cb7ad6dd26795ade, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spawnPrefab: {fileID: 2913605034560968122, guid: 80365b405acdf7c4faf3091839f68cdc, type: 3}
   _spawnLocation: {fileID: 368230763}
   _defenderSO: {fileID: 11400000, guid: 7694a2b89466d604fa0a7e973548d899, type: 2}
   _armyUnit: {fileID: 261061664}
+--- !u!114 &707199955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 707199950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 175126769559bff4e8e6a1e58b953379, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spawnLocation: {fileID: 0}
+  _attackerSO: {fileID: 0}
 --- !u!1 &836671335
 GameObject:
   m_ObjectHideFlags: 0

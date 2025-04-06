@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class MinerSpawner : DefenderFactory {
     public List<Point> MinePointList {
@@ -14,7 +13,7 @@ public class MinerSpawner : DefenderFactory {
         private set;
     } = new List<Mine>();
 
-    private static int _totalOccupied = 0;
+    private int _totalOccupied = 0;
     public static MinerSpawner Instance;
 
     private void Awake() {
@@ -40,20 +39,18 @@ public class MinerSpawner : DefenderFactory {
     }
 
     public override IAgent Spawn() {
-
+        if (!HasEnoughMoney()) {
+            return null;
+        }
         if (MinePointList.Count == 0) {
             Debug.LogError("No elements in list");
             return null;
         }
         if (_totalOccupied >= MinePointList.Count) {
+            Debug.Log(_totalOccupied);
             return null;
         }
         _totalOccupied++;
-        //if (!HasEnoughMoney()) {
-        //    return null;
-        //}
-        //DecrementCost();
-        //return SpawnAt(_spawnPrefab, _spawnLocation);
         return base.Spawn();
     }
 }

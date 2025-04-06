@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e572b43248af667458412b23ba441a17, type: 3}
   m_Name: SwordWarrior
   m_EditorClassIdentifier: 
+  <SpawnPrefab>k__BackingField: {fileID: 2913605034560968122, guid: 80365b405acdf7c4faf3091839f68cdc, type: 3}
   <Health>k__BackingField: 100
   <Speed>k__BackingField: 1
   <Cost>k__BackingField: 10

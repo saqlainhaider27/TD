@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e572b43248af667458412b23ba441a17, type: 3}
   m_Name: Miner
   m_EditorClassIdentifier: 
+  <SpawnPrefab>k__BackingField: {fileID: 6990795403873341230, guid: 674467364976f7847858372c66c1525c, type: 3}
   <Health>k__BackingField: 100
   <Speed>k__BackingField: 2
   <Cost>k__BackingField: 150

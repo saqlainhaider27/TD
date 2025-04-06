@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class BruteAttacker : Attacker {
 
-    private float _nearestDistance;
+    
+    private float _attackCooldown;
     private void Start() {
         SetStats();
-        _nearestDistance = Vector2.Distance(transform.position, Castle.Instance.Position);
         _attackCooldown = 0f;
     }
 
@@ -33,22 +33,6 @@ public class BruteAttacker : Attacker {
             FollowAttackTarget();
         }
     }
-    private IAttackable GetNearestTarget() {
-        IAttackable target = Castle.Instance;
-        foreach (IAttackable attackable in AgentManager.Instance.agents) {
-            float distanceToTarget = Vector2.Distance(Position, attackable.Position);
-            if (distanceToTarget < _nearestDistance) {
-                _nearestDistance = distanceToTarget;
-                target = attackable;
-            }
-        }
-        return target;
-    }
-
-    private float _attackCooldown;
-
-
-
     public override void Attack(IAttackable attackable, int damage) {
         if (attackable == null) {
             return;

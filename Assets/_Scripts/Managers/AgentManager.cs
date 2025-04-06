@@ -1,11 +1,17 @@
+using System;
 using System.Collections.Generic;
+using UnityEngine;
+
 
 public class AgentManager : Singleton<AgentManager> {
-    public List<IAgent> agents = new List<IAgent>();
+    public List<IAgent> Agents {
+        get; private set;
+    } = new List<IAgent>();
     public void AddTarget(IAgent agent) {
-        agents.Add(agent);
+        Agents.Add(agent);
+        Debug.Log(agent);
     }
     public void RemoveTarget(IAgent agent) {
-        agents.Remove(agent);
+        Agents.Remove(agent);
     }
 }

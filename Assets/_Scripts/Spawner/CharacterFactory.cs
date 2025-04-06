@@ -1,7 +1,6 @@
 using UnityEngine;
 
 public abstract class CharacterFactory : MonoBehaviour {
-    [SerializeField] protected GameObject _spawnPrefab;
     [SerializeField] protected Transform _spawnLocation;
 
     public IAgent SpawnAt(GameObject spawnPrefab, Transform position) {

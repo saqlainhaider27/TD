@@ -20,8 +20,10 @@ public class WarriorSpawner : DefenderFactory {
         Spawn();
     }
     public override IAgent Spawn() {
+        if (!HasEnoughMoney()) {
+            return null;
+        }
         if (_points.Count == 0) {
-            Debug.LogError("No elements in list");
             return null;
         }
         if (_totalOccupied >= _points.Count) {
